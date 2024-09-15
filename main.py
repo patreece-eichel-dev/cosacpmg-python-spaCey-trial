@@ -1,16 +1,11 @@
-# This is a sample Python script.
+import spacy
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# Load the spaCy model
+nlp = spacy.load("en_core_web_sm")
 
+# Process a text
+doc = nlp("Apple is looking at buying U.K. startup for $1 billion")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+# Print token details
+for token in doc:
+    print(token.text, token.pos_, token.dep_)
