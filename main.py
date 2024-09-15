@@ -1,11 +1,11 @@
 import spacy
 
 # Load the spaCy model
-nlp = spacy.load("en_core_web_sm")
+nlp = spacy.load("en_core_web_lg")
 
 # Process a text
-doc = nlp("Apple is looking at buying U.K. startup for $1 billion")
+doc = nlp("Bob, Powell, 3067501234, bob.powell@email.com")
 
 # Print token details
-for token in doc:
-    print(token.text, token.pos_, token.dep_)
+for ent in doc.ents: # ents property contains all the extracted entities
+    print(ent.text, ent.label_)
